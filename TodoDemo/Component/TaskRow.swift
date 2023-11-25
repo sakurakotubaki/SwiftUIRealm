@@ -1,20 +1,22 @@
-//
-//  TaskRow.swift
-//  TodoDemo
-//
-//  Created by 橋本純一 on 2023/11/25.
-//
-
 import SwiftUI
 
 struct TaskRow: View {
+    var task: String
+    var completed: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 20) {
+            // If task is completed, show a checkmark circle, otherwise show an empty circle
+            Image(systemName: completed ? "checkmark.circle" : "circle")
+            
+            Text(task)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
 struct TaskRow_Previews: PreviewProvider {
     static var previews: some View {
-        TaskRow()
+        TaskRow(task: "Do laundry", completed: true)
     }
 }
